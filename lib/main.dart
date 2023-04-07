@@ -10,8 +10,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 import 'di/injection_container.dart';
 import 'features/account/presentation/bloc/account_navigation_bloc.dart';
-import 'features/account/presentation/pages/account_page.dart';
-import 'features/gallery/presentation/pages/gallery.dart';
 import 'features/login/presentation/pages/login_page.dart';
 import 'features/page_scaffolding/presentation/navigation_bloc/navigation_bloc.dart';
 
@@ -58,6 +56,7 @@ class MyApp extends StatelessWidget {
         preferDesktop: true,
         builder: (BuildContext context) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Paperless Listings',
             theme: appTheme,
             home: const LoginPage(),

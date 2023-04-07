@@ -27,7 +27,7 @@ class _PluginWidgetState extends State<PluginWidget> {
           color: getValueForScreenType(
               context: context, mobile: Colors.grey[50], desktop: Colors.white),
           borderRadius: BorderRadius.circular(8)),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: ScreenTypeLayout.builder(
         desktop: (p0) => desktopView(),
@@ -37,27 +37,13 @@ class _PluginWidgetState extends State<PluginWidget> {
   }
 
   Widget desktopView() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            image(),
-            horizontalSpacingSmall,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                title(),
-                verticalSpacingTiny,
-                desc(),
-              ],
-            )
-          ],
-        ),
-        button(),
-      ],
+    return ListTile(
+      leading: image(),
+      title: title(),
+      subtitle: desc(),
+      trailing: button(),
+      contentPadding: const EdgeInsets.all(0),
+      // isThreeLine: true,
     );
   }
 
@@ -67,7 +53,6 @@ class _PluginWidgetState extends State<PluginWidget> {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          // mainAxisSize: MainAxisSize.min,
           children: [
             image(),
             horizontalSpacingSmall,
@@ -108,8 +93,7 @@ class _PluginWidgetState extends State<PluginWidget> {
       widget.data.desc,
       maxLines: 2,
       softWrap: true,
-      // overflow: TextOverflow.,
-      style: const TextStyle(),
+      overflow: TextOverflow.ellipsis,
     );
   }
 

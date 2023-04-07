@@ -7,58 +7,61 @@ class SpecificNeedsForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 100, 40, 150),
-      color: Colors.grey[50],
-      child: Container(
-        padding: const EdgeInsets.all(30),
-        decoration: BoxDecoration(
-            color: Colors.pink.shade50, borderRadius: BorderRadius.circular(6)),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Do you have a specific need?',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .copyWith(fontWeight: FontWeight.w700),
-              ),
-              verticalSpacingMedium,
-              Text(
-                'Do you have a specific feature you would like to add to your listings? We are glad to help you. Please tell us exactly what you want',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Colors.grey[800],
-                      fontSize: 18,
-                    ),
-              ),
-              verticalSpacingMedium,
-              Text(
-                'Feature Request',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Colors.grey[800],
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              verticalSpacingTiny,
-              const TextField(
-                maxLines: 3,
-                minLines: 3,
-                decoration: InputDecoration(
-                  hintText: 'Briefly describe what you need',
-                  hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
-                  fillColor: Colors.white,
-                  filled: true,
-                ),
-              ),
-              verticalSpacingSmall,
-              button(),
-              const SizedBox(
-                height: 200,
-              )
-            ]),
+      constraints: const BoxConstraints(maxWidth: 300),
+      padding: const EdgeInsets.all(30),
+      margin: const EdgeInsets.only(top: 140, right: 50),
+      decoration: BoxDecoration(
+        color: Colors.pink.shade50,
+        borderRadius: BorderRadius.circular(6),
       ),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Do you have a specific need?',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.w700),
+            ),
+            verticalSpacingMedium,
+            Text(
+              'Do you have a specific feature you would like to add to your listings? We are glad to help you. Please tell us exactly what you want',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Colors.grey[800],
+                    fontSize: 18,
+                  ),
+            ),
+            verticalSpacingMedium,
+            Text(
+              'Feature Request',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Colors.grey[800],
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            verticalSpacingTiny,
+            const TextField(
+              maxLines: 3,
+              minLines: 3,
+              decoration: InputDecoration(
+                hintText: 'Briefly describe what you need',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+            ),
+            verticalSpacingSmall,
+            button(),
+            const SizedBox(
+              height: 200,
+            )
+          ]),
     );
   }
 

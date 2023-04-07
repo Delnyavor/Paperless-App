@@ -15,13 +15,15 @@ class SideNavigationRail extends StatelessWidget {
     return BlocBuilder<AccountNavigationBloc, AccountNavigationState>(
       builder: (context, state) {
         return Container(
+          // constraints: const BoxConstraints(maxWidth: 300),
+          width: 300,
           padding: const EdgeInsets.symmetric(vertical: 50),
           color: Colors.white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Align(alignment: Alignment.topCenter, child: Profile()),
+              const Align(alignment: Alignment.center, child: Profile()),
               verticalSpacingSmall,
               ...state.pages.map(
                 (e) => AccountNavButton(route: e, page: state.pages.indexOf(e)),

@@ -27,8 +27,11 @@ class _AccountPage extends State<AccountPage> {
             backgroundColor: Colors.transparent,
           )),
       body: ScreenTypeLayout.builder(
-        mobile: (p0) => const AccountMobilePage(),
-        desktop: (p0) => const AccountDesktopPage(),
+        breakpoints:
+            const ScreenBreakpoints(desktop: 1000, tablet: 800, watch: 200),
+        mobile: (context) => const AccountMobilePage(),
+        tablet: (context) => const AccountMobilePage(),
+        desktop: (context) => const AccountDesktopPage(),
       ),
       drawer: drawer(),
     );

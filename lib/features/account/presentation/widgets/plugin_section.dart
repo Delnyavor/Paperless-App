@@ -20,7 +20,7 @@ class PluginSection extends StatelessWidget {
 
   Widget sectionTitle(BuildContext context) {
     return Container(
-      width: double.infinity,
+      // width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
           border: getValueForScreenType(
@@ -34,6 +34,8 @@ class PluginSection extends StatelessWidget {
       )),
       child: Text(
         title,
+        // MediaQuery.of(context).size.width.toString(),
+
         style: Theme.of(context)
             .textTheme
             .headlineSmall!

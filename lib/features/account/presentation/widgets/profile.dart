@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:paperless_app/common/image_resources.dart';
 import 'package:paperless_app/common/spacers.dart';
@@ -9,6 +8,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const CircleAvatar(
           backgroundColor: Colors.transparent,

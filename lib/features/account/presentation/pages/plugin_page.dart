@@ -55,11 +55,15 @@ class PluginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: getValueForScreenType(
-          context: context, mobile: Colors.white, desktop: Colors.grey[50]),
+        context: context,
+        mobile: Colors.white,
+        desktop: Colors.grey[50],
+      ),
       padding: getValueForScreenType(
-          context: context,
-          mobile: const EdgeInsets.only(top: 7, bottom: 50),
-          desktop: const EdgeInsets.all(50)),
+        context: context,
+        mobile: const EdgeInsets.only(top: 7, bottom: 50),
+        desktop: const EdgeInsets.all(50),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -77,7 +81,7 @@ class PluginPage extends StatelessWidget {
             context: context,
             mobile: const SizedBox.shrink(),
             desktop: const SizedBox(
-              height: 300,
+              height: 150,
             ),
           ),
         ],

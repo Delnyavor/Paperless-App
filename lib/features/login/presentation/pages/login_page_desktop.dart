@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:paperless_app/features/login/presentation/pages/login_page_mobile.dart';
 
@@ -11,9 +10,6 @@ class LoginDesktopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) {
-      print('desktop');
-    }
     return Row(
       children: const [
         Expanded(child: ImageBanner()),
