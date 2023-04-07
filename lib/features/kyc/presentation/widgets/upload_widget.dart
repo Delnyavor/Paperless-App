@@ -36,9 +36,9 @@ class UploadWidgetState extends State<UploadWidget> {
     return Container(
       constraints: getValueForScreenType<BoxConstraints?>(
           context: context,
-          mobile: null,
+          mobile: const BoxConstraints(maxWidth: 300),
           tablet: null,
-          desktop: const BoxConstraints(maxWidth: 300)),
+          desktop: const BoxConstraints(maxWidth: 200)),
       child: Stack(
         clipBehavior: Clip.none,
         children: [

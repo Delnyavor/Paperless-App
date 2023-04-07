@@ -36,17 +36,6 @@ class _DocTypeSelectorState extends State<DocTypeSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return dropDown();
-    // return Row(
-    //   mainAxisSize: MainAxisSize.min,
-    //   children: [
-    //     Expanded(
-    //       child: drop
-    //   ],
-    // );
-  }
-
-  Widget dropDown() {
     return DropdownButton2<DocumentType>(
       value: value,
       isExpanded: true,

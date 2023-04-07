@@ -43,13 +43,13 @@ class _UploadButtonState extends State<UploadButton> {
           ),
           maximumSize: getValueForScreenType(
             context: context,
-            mobile: const Size(1000, kMinInteractiveDimension),
-            desktop: const Size(700, 80),
+            mobile: const Size(500, kMinInteractiveDimension),
+            desktop: const Size(500, 80),
           ),
           minimumSize: getValueForScreenType(
             context: context,
-            mobile: null,
-            desktop: const Size(650, 50),
+            mobile: const Size(500, kMinInteractiveDimension),
+            desktop: const Size(450, 50),
           ),
         ),
         child: child(),
