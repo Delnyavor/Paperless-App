@@ -36,34 +36,37 @@ class _DocTypeSelectorState extends State<DocTypeSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      // mainAxisSize: MainAxisSize.max,
-      children: [
-        Expanded(
-          child: DropdownButton2<DocumentType>(
-            value: value,
-            isExpanded: true,
-            underline: const SizedBox.shrink(),
-            dropdownStyleData: DropdownStyleData(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8))),
-            customButton: child(),
-            onChanged: (type) {
-              setState(() {
-                value = type!;
-                bloc.add(UpdateDocumentTypeEvent(type: value));
-              });
-            },
-            items: types
-                .map((e) => DropdownMenuItem<DocumentType>(
-                      value: e,
-                      child: Text(c[types.indexOf(e)]),
-                    ))
-                .toList(),
-          ),
-        ),
-      ],
+    return dropDown();
+    // return Row(
+    //   mainAxisSize: MainAxisSize.min,
+    //   children: [
+    //     Expanded(
+    //       child: drop
+    //   ],
+    // );
+  }
+
+  Widget dropDown() {
+    return DropdownButton2<DocumentType>(
+      value: value,
+      isExpanded: true,
+      underline: const SizedBox.shrink(),
+      dropdownStyleData: DropdownStyleData(
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(8))),
+      customButton: child(),
+      onChanged: (type) {
+        setState(() {
+          value = type!;
+          bloc.add(UpdateDocumentTypeEvent(type: value));
+        });
+      },
+      items: types
+          .map((e) => DropdownMenuItem<DocumentType>(
+                value: e,
+                child: Text(c[types.indexOf(e)]),
+              ))
+          .toList(),
     );
   }
 

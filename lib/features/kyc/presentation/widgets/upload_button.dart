@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paperless_app/features/gallery/presentation/pages/gallery.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../bloc/kyc_bloc.dart';
 
@@ -36,11 +37,21 @@ class _UploadButtonState extends State<UploadButton> {
           bloc.add(const UploadKycEvent());
         },
         style: TextButton.styleFrom(
-            backgroundColor: Colors.pink,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            maximumSize: const Size(1000, kMinInteractiveDimension)),
+          backgroundColor: Colors.pink,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          maximumSize: getValueForScreenType(
+            context: context,
+            mobile: const Size(1000, kMinInteractiveDimension),
+            desktop: const Size(700, 80),
+          ),
+          minimumSize: getValueForScreenType(
+            context: context,
+            mobile: null,
+            desktop: const Size(650, 50),
+          ),
+        ),
         child: child(),
       ),
     );

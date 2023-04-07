@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:paperless_app/features/kyc/presentation/bloc/kyc_bloc.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class UploadWidget extends StatefulWidget {
   final String hint;
@@ -32,27 +33,34 @@ class UploadWidgetState extends State<UploadWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        GestureDetector(
-          onTap: getImage,
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.48,
-            decoration:
-                imageData == null ? defaultDecoration() : displayDecoration(),
-            child: AspectRatio(
-              aspectRatio: 1.2,
-              child: child(),
+    return Container(
+      constraints: getValueForScreenType<BoxConstraints?>(
+          context: context,
+          mobile: null,
+          tablet: null,
+          desktop: const BoxConstraints(maxWidth: 300)),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          GestureDetector(
+            onTap: getImage,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.48,
+              decoration:
+                  imageData == null ? defaultDecoration() : displayDecoration(),
+              child: AspectRatio(
+                aspectRatio: 1.2,
+                child: child(),
+              ),
             ),
           ),
-        ),
-        Positioned(
-          top: -34,
-          right: -32,
-          child: cancelButton(),
-        ),
-      ],
+          Positioned(
+            top: -34,
+            right: -32,
+            child: cancelButton(),
+          ),
+        ],
+      ),
     );
   }
 
